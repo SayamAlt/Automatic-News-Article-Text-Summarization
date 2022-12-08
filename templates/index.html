@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automatic News Summarization System</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #e6e340;
+        }
+        .navbar-brand {
+            display: block;
+            margin: auto;
+            color: #f04ada;
+            font-weight: bold;
+            font-family: "Helvetica";
+        }
+        p {
+            text-align: center;
+        }
+        p:hover {
+            filter: brightness(150%);
+        }
+        h1{
+            color: #780233;
+            font-family: 'Georgia', serif;
+            font-size: 3rem;
+            font-weight: bold;
+        }
+        .copyright{
+            color: #2d1280;
+            font-size: 1.5rem;
+            font-family: 'Arial',sans-serif;
+        }
+        textarea {
+            display: block;
+            margin: auto;
+            margin-bottom: 1rem;
+        }
+        input {
+            height: 65px;
+            margin: 0;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+        }
+        .buttons {
+            display: flex;
+        }
+        button {
+            border: none;
+            border-radius: 10%;
+            color: white;
+            font-weight: bold;
+            padding: 10px 8px;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            font-size: 16px;
+            font-width: 48px;
+            cursor: pointer;
+            margin: auto;
+        }
+        label {
+            font-weight: bold;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            display: block;
+            margin: 1rem auto;
+            color: #0e3b80;
+        }
+        input {
+            height: 25px;
+            width: 1200px;
+        }
+        .word_length {
+            text-align: right;
+            font-size: 15px;
+            font-weight: bold;
+            color: #cc1842;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <span class="navbar-brand mb-0 h1"><h1>Automatic News Articles Summarization</h1></span>
+    </nav>
+    <div class="container">
+        <form action="/summarize" method="POST">
+            <label for="news_site_link">Enter News Article Link:</label>
+            <input type="url" id="url" name="url">
+            <label for="article_text" id="article_text" name="article_text">Scraped News Article:</label>
+            <textarea name="content" id="content" rows="10" cols="135">{{ text }}</textarea>
+            <p class="word_length">Word Length: {{ text_len }}</p>
+            <label for="summary" id="summary" name="summary">Article Summary:</label>
+            <textarea name="summary" id="summary" rows="10" cols="135">{{ summary }}</textarea>
+            <p class="word_length">Word Length: {{ summary_len }}</p>
+            <div class="buttons">
+                <button type="submit" class="button bg-secondary" name="submit" onClick="addContent()">Submit</button>
+                <button type="submit" class="button bg-success" name="clear" onClick="clearContent()">Clear</button>
+            </div>
+        </form>
+        <br>
+        <br>
+        <p class="copyright">@2022 Sayam Kumar</p>
+    </div>
+
+    <script>
+        function addContent(event) {
+            document.getElementById("url").innerHTML = {{ url }};
+            event.preventDefault();
+        }
+        function clearContent(event) {
+            event.preventDefault();
+            document.getElementById("url").innerHTML = "";
+            document.getElementById("content").innerHTML = "";
+            document.getElementById("summary").innerHTML = "";
+            var elements = document.getElementsByClassName("word_length");
+            for (var i = 0; i < elements.length; i++) {
+                elements[i].innerHTML = 0;
+            }
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+</body>
+</html>
