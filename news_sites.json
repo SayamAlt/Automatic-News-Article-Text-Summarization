@@ -1,0 +1,185 @@
+{
+  "cnn": {
+    "link": "http://edition.cnn.com/"
+  },
+  "bbc": {
+    "link": "http://www.bbc.com/"
+  },
+  "theguardian": {
+    "link": "https://www.theguardian.com/international"
+  },
+  "breitbart": {
+    "link": "http://www.breitbart.com/"
+  },
+  "channel4": {
+    "link": "https://www.channel4.com/news/"
+  },
+  "infowars": {
+    "link": "https://www.infowars.com/"
+  },
+  "foxnews": {
+    "link": "http://www.foxnews.com/"
+  },
+  "nbcnews": {
+    "link": "http://www.nbcnews.com/"
+  },
+  "washingtonpost": {
+    "link": "https://www.washingtonpost.com/"
+  },
+  "theonion": {
+    "link": "http://www.theonion.com/"
+  },
+  "apnews": {
+    "link": "https://www.apnews.com/"
+  },
+  "c-span": {
+    "link": "https://www.c-span.org/"
+  },
+  "bureauofinvestigativejournalism": {
+    "link": "https://www.thebureauinvestigates.com/"
+  },
+  "christiansciencemonitor": {
+    "link": "https://www.csmonitor.com/"
+  },
+  "theeconomist": {
+    "link": "https://www.economist.com/"
+  },
+  "npr": {
+    "link": "https://www.npr.org/"
+  },
+  "propublica": {
+    "link": "https://www.propublica.org/"
+  },
+  "reuters": {
+    "link": "https://www.reuters.com/"
+  },
+  "usatoday": {
+    "link": "https://www.usatoday.com/"
+  },
+  "wsj": {
+    "link": "https://www.wsj.com/"
+  },
+  "fair": {
+    "link": "https://fair.org/"
+  },
+  "timesofindia": {
+    "link": "https://timesofindia.indiatimes.com"
+  },
+  "hindustantimes": {
+    "link": "https://www.hindustantimes.com/"
+  },
+  "ndtvnews": {
+    "link": "https://www.ndtv.com/"
+  },
+  "cbc": {
+    "link": "https://www.cbc.ca/"
+  },
+  "ctvnews": {
+    "link": "https://www.ctvnews.ca/"
+  },
+  "globalnews": {
+    "link": "https://globalnews.ca/"
+  },
+  "citynews": {
+    "link": "https://www.citynews.ca/"
+  },
+  "dutchnews": {
+    "link": "https://www.dutchnews.nl/"
+  },
+  "nltimes": {
+    "link": "https://www.nltimes.nl/"
+  },
+  "cnbc": {
+    "link": "https://www.cnbc.com/europe-news/"
+  },
+  "france24": {
+    "link": "https://www.france24.com/en/"
+  },
+  "thelocal": {
+    "link": "https://www.thelocal.dk/"
+  },
+  "cphpost": {
+    "link": "https://www.cphpost.dk/"
+  },
+  "euronews": {
+    "link": "https://www.euronews.com/"
+  },
+  "totalcroatianews": {
+    "link": "https://www.total-croatia-news.com/"
+  },
+  "paramount": {
+    "link": "https://www.paramount.com/news"
+  },
+  "skygroup": {
+    "link": "https://www.skygroup.sky/newsroom"
+  },
+  "abcnews": {
+    "link": "https://www.abc.net.au/news/"
+  },
+  "nhk": {
+    "link": "https://www3.nhk.or.jp/nhkworld/en/news/"
+  },
+  "newsconz": {
+    "link": "https://www.1news.co.nz/"
+  },
+  "globeandmail": {
+    "link": "https://www.theglobeandmail.com/"
+  },
+  "torontostar": {
+    "link": "https://www.thestar.com"
+  },
+  "smh": {
+    "link": "https://www.smh.com.au/"
+  },
+  "nzherald": {
+    "link": "https://www.nzherald.co.nz/"
+  },
+  "iol": {
+    "link": "https://www.iol.co.za/"
+  },
+  "independent": {
+    "link": "https://www.independent.ie/"
+  },
+  "thejapantimes": {
+    "link": "https://www.japantimes.co.jp/"
+  },
+  "irishnews": {
+    "link": "https://www.irishnews.com/"
+  },
+  "theirishtimes": {
+    "link": "https://www.irishtimes.com/"
+  },
+  "themirror": {
+    "link": "https://www.mirror.co.uk/"
+  },
+  "thesun": {
+    "link": "https://www.thesun.co.uk/"
+  },
+  "thebelfasttelegraph": {
+    "link": "https://www.belfasttelegraph.co.uk/"
+  },
+  "thedailyexpress": {
+    "link": "https://www.express.co.uk/"
+  },
+  "thelocalsweden": {
+    "link": "https://www.thelocal.se/"
+  },
+  "norwaynews": {
+    "link": "https://www.newsinenglish.no/"
+  },
+  "portugalnews": {
+    "link": "https://www.theportugalnews.com/"
+  },
+  "africanews": {
+    "link": "https://www.africanews.com/"
+  },
+  "vrt": {
+    "link": "https://www.vrt.be/vrtnws/en/"
+  },
+  "tvpworld": {
+    "link": "https://tvpworld.com/"
+  },
+  "bloomberg": {
+    "link": "https://www.bloomberg.com/asia"
+  }
+}
