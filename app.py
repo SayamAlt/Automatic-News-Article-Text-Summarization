@@ -38,7 +38,8 @@ def main():
     link = st.text_input("Enter your URL:")
     article = scrapArticle(link)
     summary = ""
-
+    gpt2_model = get_model();
+    
     if st.button("Summarize"):
         summary = gpt2_model(article,min_length=60)
 
