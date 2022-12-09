@@ -5,16 +5,14 @@
 
 
 import streamlit as st
-from summarizer import TransformerSummarizer
+from transformers import pipeline 
 from newspaper import Article
-
 
 # In[3]:
 
 @st.cache(allow_output_mutation=True)
 def get_model():
-    return TransformerSummarizer(transformer_type="GPT2",transformer_model_key="gpt2-medium")
-
+    return pipeline("summarization",model="facebook/bart-large-cnn")
 
 # In[6]:
 
@@ -38,10 +36,10 @@ def main():
     link = st.text_input("Enter your URL:")
     article = scrapArticle(link)
     summary = ""
-    gpt2_model = get_model();
+    bart_model = get_model();
     
     if st.button("Summarize"):
-        summary = gpt2_model(article,min_length=60)
+        summary = bart_model(article)[0]['summary_text']
 
     st.success(summary)
 
