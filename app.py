@@ -12,7 +12,7 @@ from newspaper import Article
 # In[9]:
 
 
-# @st.cache(allow_output_mutation=True)
+@st.cache(allow_output_mutation=True)
 def get_model():
     model = pipeline("summarization",model="t5-base")
     return model
