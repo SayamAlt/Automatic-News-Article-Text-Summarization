@@ -30,7 +30,7 @@ def scrapArticle(url):
         print(e)
     return article.text
 
-def generateSummary(text,tokenizer,model):
+def generateSummary(text,tokenizer,model,summary_len):
     input_ids = tokenizer(
         [WHITESPACE_HANDLER(text)],
         return_tensors="tf",
@@ -41,7 +41,7 @@ def generateSummary(text,tokenizer,model):
     
     output_ids = model.generate(
             input_ids=input_ids,
-            max_length=150,
+            max_length=summary_len,
             no_repeat_ngram_size=2,
             num_beams=5
     )[0]
@@ -57,12 +57,13 @@ def generateSummary(text,tokenizer,model):
 def main():
     st.title("Automatic News Articles Text Summarization")
     link = st.text_input("Enter the URL of news channel:")
+    summary_len = st.slider("Enter the summary length:",min_value=10,max_value=100)
     article = scrapArticle(link)
     summary = ""
     tokenizer, model = getModel();
     
     if st.button("Summarize"):
-        summary = generateSummary(article,tokenizer,model);
+        summary = generateSummary(article,tokenizer,model,summary_len);
 
     st.success(summary)
 
