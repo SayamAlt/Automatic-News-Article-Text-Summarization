@@ -1,25 +1,24 @@
-#!/usr/bin/env python
-# coding: utf-8
+# -*- coding: utf-8 -*-
+"""
+Spyder Editor
 
-# In[1]:
+This is a temporary script file.
+"""
 
-
+import re
+from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 import streamlit as st
-from transformers import pipeline 
 from newspaper import Article
 
-
-# In[9]:
+WHITESPACE_HANDLER = lambda k: re.sub('\s+', ' ', re.sub('\n+', ' ', k.strip()))
 
 
 @st.cache(allow_output_mutation=True)
-def get_model():
-    model = pipeline("summarization",model="t5-base")
-    return model
-
-
-# In[3]:
-
+def getModel():
+    model_name = "csebuetnlp/mT5_multilingual_XLSum"
+    tokenizer = AutoTokenizer.from_pretrained(model_name)
+    model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
+    return tokenizer, model
 
 def scrapArticle(url):
     article = Article(url)
@@ -31,26 +30,41 @@ def scrapArticle(url):
         print(e)
     return article.text
 
+def generateSummary(text,tokenizer,model):
+    input_ids = tokenizer(
+        [WHITESPACE_HANDLER(text)],
+        return_tensors="pt",
+        padding="max_length",
+        truncation=True,
+        max_length=512
+    )["input_ids"]
+    
+    output_ids = model.generate(
+            input_ids=input_ids,
+            max_length=150,
+            no_repeat_ngram_size=2,
+            num_beams=5
+    )[0]
 
-# In[11]:
-
-
+    summary = tokenizer.decode(
+        output_ids,
+        skip_special_tokens=True,
+        clean_up_tokenization_spaces=False
+    )
+                                                                                                                    
+    return summary
+    
 def main():
     st.title("Automatic News Articles Text Summarization")
-    link = st.text_input("Enter your URL:")
+    link = st.text_input("Enter the URL of news channel:")
     article = scrapArticle(link)
     summary = ""
-    model = get_model();
+    tokenizer, model = getModel();
     
     if st.button("Summarize"):
-        summary = model(article)[0]['summary_text']
+        summary = generateSummary(article,tokenizer,model);
 
-    st.success(summary.capitalize().title())
-
-
-# In[12]:
-
+    st.success(summary)
 
 if __name__ == "__main__":
     main()
-
