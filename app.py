@@ -33,7 +33,7 @@ def scrapArticle(url):
 def generateSummary(text,tokenizer,model):
     input_ids = tokenizer(
         [WHITESPACE_HANDLER(text)],
-        return_tensors="pt",
+        return_tensors="tf",
         padding="max_length",
         truncation=True,
         max_length=512
